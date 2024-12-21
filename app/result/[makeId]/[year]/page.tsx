@@ -21,7 +21,6 @@ export async function generateStaticParams() {
 export default async function ResultPage({ params }: { params:Promise<{ makeId: string; year: string }>  }) {
   const { makeId, year } = await params;
 
-  
   const models = await modelService.getModelsForMakeIdYear(makeId, year);
 
   return (

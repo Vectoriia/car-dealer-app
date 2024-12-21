@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+This project is a Next.js application designed to filter and display vehicle information. It allows users to select a vehicle make and model year on a filtering page, then view detailed vehicle models on a result page. The app is built using modern web technologies such as Next.js (App Router), Tailwind CSS, and utilizes React Suspense for efficient data fetching.
+
+## Setup and Installation
+Clone the Repository:
 
 ```bash
-npm run dev
+git clone git@github.com:Vectoriia/car-dealer-app.git
+cd car-dealer-app
+```
+
+Install Dependencies:
+
+```bash
+npm install
 # or
-yarn dev
+yarn install
+```
+
+Build project:
+
+```bash
+npm run build && npm start
 # or
-pnpm dev
-# or
-bun dev
+yarn build && yarn start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── page.tsx         # Filtering page component
+│   ├── layout.tsx       # Layout component
+│   ├── error.tsx        # Error page component
+│   ├── result/
+│   │   ├── [makeId]/[year]/page.tsx
 
-## Learn More
+# Note: As the project scales, consider moving reusable components into a dedicated `components` folder for better organization and maintainability.  
+├── services/
+│   ├── make.service.ts  # Service for fetching vehicle makes
+│   ├── model.service.ts # Service for fetching vehicle models
+├── utils/
+│   ├── get-year-range.util.ts # Utility for generating year ranges
+├── types/              # Types provided for API services
+│   ├── dto/
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Ensure the NHTSA API is accessible during runtime to fetch data correctly. Because during the development process, the API became inaccessible.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contact
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For any queries or support, feel free to reach out.
